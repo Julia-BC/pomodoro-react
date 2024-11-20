@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodash React</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Botão de Configurações -->
+    <div class="container-config">
+        <button class="btn-setting" id="openModal">Configurações</button>
+    </div>
+
+    <!-- Modal de Configurações -->
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <div class="form-group">
+                    <label for="pomodoro">Tempo Pomodoro (minutos):</label>
+                    <input type="number" id="pomodoro" name="pomodoro" value="25" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="pequena-pausa">Pequena Pausa (minutos):</label>
+                    <input type="number" id="pequena-pausa" name="pequena-pausa" value="5" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="longa-pausa">Longa Pausa (minutos):</label>
+                    <input type="number" id="longa-pausa" name="longa-pausa" value="15" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="intervalo">Intervalo de pausa longo:</label>
+                    <input type="number" id="intervalo" name="intervalo" value="4" min="1" max="10">
+                </div>
+                <div class="form-group">
+                    <button type="button" id="saveConfig">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Abas de Navegação -->
+    <div class="tabs">
+        <div class="tab active" data-tab="pomodoro">Pomodoro</div>
+        <div class="tab" data-tab="pausa">Intervalo</div>
+        <div class="tab" data-tab="longa-pausa">Longa Pausa</div>
+    </div>
+
+    <!-- Conteúdo das Abas -->
+    <div id="pomodoro" class="content active">
+        <div class="form-group">
+            <h2>
+                <div class="tempo" id="timerPomodoro">25:00</div>
+                <button class="primeiro" id="startPomodoro">Iniciar</button>
+            </h2>
+        </div>
+    </div>
+
+    <div id="pausa" class="content">
+        <div class="form-group">
+            <h2>
+                <div class="tempo" id="timerPausa">5:00</div>
+                <button class="primeiro" id="startPausa">Iniciar</button>
+            </h2>
+        </div>
+    </div>
+
+    <div id="longa-pausa" class="content">
+        <div class="form-group">
+            <h2>
+                <div class="tempo" id="timerLongBreak">15:00</div>
+                <button class="primeiro" id="startLongBreak">Iniciar</button>
+            </h2>
+        </div>
+    </div>
+
+    <!-- Seção de Tarefas -->
+    <div class="container">
+        <h1>Tarefas</h1>
+        <div class="task-input">
+            <input type="text" id="new-task" placeholder="Adicione uma nova tarefa">
+            <button id="addTask">Adicionar</button>
+        </div>
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- Música de Fundo -->
+    <iframe
+        width="100%"
+        height="300"
+        scrolling="no"
+        frameborder="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1234281943&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+    </iframe>
+
+    <!-- Importação do Script -->
+    <script src="index.js"></script>
+</body>
+</html>
